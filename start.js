@@ -30,11 +30,13 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/www'));
 
 // This is for web server to start listening to port 3000
-const xxx = process.env.port
-app.set('port', xxx);
-var server = app.listen(app.get('port'), function () {
-    console.log('Server listening on port ' + server.address().port);
+const port = process.env.PORT || 3000;
+app.set('port', port);
+
+var server = app.listen(port, function () {
+    console.log('Server listening on port ' + port);
 });
+
 
 //-------------------------------------------------------------------
 // Configuration for your Forge account
